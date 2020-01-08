@@ -8,7 +8,11 @@ export default {
   addDislikedMovie(state, movie) {
     state.dislikedMovies.push(movie)
   },
-  removeCuratedMovie(state, index) {
-    state.moviesList.splice(index, 1)
+  removeCuratedMovie(state) {
+    state.moviesList.splice(0, 1)
+  },
+  skipMovie(state) {
+    const movie = state.moviesList.shift()
+    state.moviesList.push(movie)
   },
 }
