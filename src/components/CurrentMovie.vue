@@ -1,7 +1,7 @@
 <template>
   <div class="movie">
     <img
-      class="movie movie__image"
+      class="movie__image"
       :src="'https://image.tmdb.org/t/p/w500/' + currentMovie.poster_path"
       alt=""
     />
@@ -61,6 +61,7 @@ export default {
   border-radius .25rem
   overflow hidden
   position relative
+  margin auto
 
 .movie__image
   width 100%

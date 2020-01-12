@@ -47,4 +47,8 @@ export default {
 <style lang="stylus" scoped>
 .buttons_section
   display flex
+  width 100%
+  justify-content space-between
+  align-items center
+  padding 1rem
 </style>

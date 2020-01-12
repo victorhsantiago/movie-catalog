@@ -18,11 +18,14 @@ export default {
 .button
   border: none
   background-color: #fff
-  width: 150px
-  display: flex
-  align-items: center
-  justify-content: center
-  padding: 0.5rem
+  font-size .8rem
+  font-weight 600
+  width 6rem
+  height 3rem
+  display flex
+  align-items center
+  justify-content center
   border-radius: 2rem
   cursor pointer
+  text-transform uppercase
 </style>
