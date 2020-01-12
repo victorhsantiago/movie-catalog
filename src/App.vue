@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <Home>
+    <AppLoader v-if="loadingMovies" />
+    <Home v-else>
       <transition name="fade" mode="out-in">
         <router-view />
       </transition>
@@ -9,19 +10,26 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default {
-  components: { Home: () => import('@/views/Home') },
+  components: {
+    Home: () => import('@/views/Home'),
+    AppLoader: () => import('@/components/AppLoader'),
+  },
+  computed: {
+    ...mapState(['loadingMovies']),
+  },
   created() {
     this.getMoviesList()
+    this.getGenresList()
   },
   methods: {
-    ...mapActions(['getMoviesList']),
+    ...mapActions(['getMoviesList', 'getGenresList']),
   },
 }
 </script>
 
-<style>
-@import url('./style/style.css');
+<style lang="stylus">
+@import 'style/style.styl'
 </style>
