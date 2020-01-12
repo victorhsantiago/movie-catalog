@@ -1,6 +1,6 @@
 <template>
-  <div class="movies__list">
-    <div class="movie" v-for="(movie, i) in moviesList" :key="i">
+  <section class="movies__list">
+    <section class="movie" v-for="(movie, i) in moviesList" :key="i">
       <img
         class="movie__image"
         :src="'https://image.tmdb.org/t/p/w500/' + movie.poster_path"
@@ -10,29 +10,21 @@
         <p class="description__title">
           {{ movie.original_title }}
         </p>
-        <section class="description__rates">
-          <img
-            class="rates__rate"
-            v-for="(n, i) in upvotes(movie)"
-            :key="i"
-            src="@/assets/favorite.png"
-            alt=""
-          />
-          <img
-            class="rates__rate"
-            v-for="n in downvotes(movie)"
-            :key="n + 10"
-            src="@/assets/favorite_.png"
-            alt=""
-          />
-        </section>
+        <MovieRates
+          class="description__rates"
+          :movie-rate="movie.vote_average"
+        />
       </section>
-    </div>
-  </div>
+    </section>
+  </section>
 </template>
 
 <script>
 export default {
+  components: {
+    MovieRates: () => import('@/components/MovieRates.vue'),
+  },
+
   props: { moviesList: Array },
   methods: {
     upvotes(movie) {
@@ -70,13 +62,12 @@ export default {
   position absolute
   bottom 0
   padding .5rem
-  background linear-gradient(0deg, rgba(100,100,100,.75) 0%, rgba(255,255,255,0) 100%)
+  background linear-gradient(0deg, rgba(100,100,100,1) 0%, rgba(255,255,255,0) 100%)
 
 .description__title
+  margin-bottom .5rem
+  font-size .8rem
   text-transform uppercase
   color #FFF
   font-weight 600
-
-.rates__rate
-  margin-right .25rem
 </style>

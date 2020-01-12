@@ -1,16 +1,19 @@
 <template>
-  <section>
-    <CurrentMovie :current-movie="getCurrentMovie" />
-    <section class="buttons_section">
-      <DislikeButton @dislikeMovie="dislikeMovie" />
-      <SkipButton @skip="skip" />
-      <LikeButton @likeMovie="likeMovie" />
+  <div>
+    <section v-if="getCurrentMovie">
+      <CurrentMovie :current-movie="getCurrentMovie" />
+      <section class="buttons_section">
+        <DislikeButton @dislikeMovie="dislikeMovie" />
+        <SkipButton @skip="skip" />
+        <LikeButton @likeMovie="likeMovie" />
+      </section>
     </section>
-  </section>
+    <NoMovies v-else />
+  </div>
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex'
+import { mapState, mapGetters, mapMutations } from 'vuex'
 
 export default {
   components: {
@@ -18,8 +21,10 @@ export default {
     DislikeButton: () => import('@/components/DislikeButton.vue'),
     SkipButton: () => import('@/components/SkipButton.vue'),
     LikeButton: () => import('@/components/LikeButton.vue'),
+    NoMovies: () => import('@/components/NoMovies.vue'),
   },
   computed: {
+    ...mapState(['moviesList']),
     ...mapGetters(['getCurrentMovie']),
   },
   methods: {
