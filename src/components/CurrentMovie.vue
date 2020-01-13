@@ -10,6 +10,12 @@
         <p class="description__title">
           {{ currentMovie.original_title }}
         </p>
+        <p class="description__subtitle">
+          {{ currentMovie.release_date | onlyYear }} -
+          <span v-for="(id, i) in currentMovie.genre_ids" :key="i">
+            {{ genres(id) }} <span>/</span>
+          </span>
+        </p>
         <MovieRates
           class="description__rates"
           :movie-rate="currentMovie.vote_average"
@@ -30,7 +36,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapGetters, mapMutations } from 'vuex'
 
 export default {
   components: {
@@ -42,6 +48,7 @@ export default {
   },
   computed: {
     ...mapState(['isMenuOpen']),
+    ...mapGetters(['getMovieGenre']),
     upvotes() {
       return Math.round(this.currentMovie.vote_average / 2)
     },
@@ -51,6 +58,10 @@ export default {
   },
   methods: {
     ...mapMutations(['toggleModal']),
+    genres(id) {
+      const { name } = this.getMovieGenre(id)
+      return name
+    },
   },
 }
 </script>
@@ -63,7 +74,9 @@ export default {
   overflow hidden
   position relative
   margin auto
-
+  @media only screen and (min-width 321px)
+    width 700px
+    height 460px
 .movie__image
   width 100%
   height 100%
@@ -79,14 +92,33 @@ export default {
                       "rate rate rate votes votes" \
                       "overview overview overview sinopse sinopse"
   background linear-gradient(0deg, rgba(100,100,100,.75) 0%, rgba(255,255,255,0) 100%)
-
+  @media only screen and (min-width 321px)
+    align-items end
+    grid-template-areas "title title title title rate" \
+                        "subtitle subtitle subtitle subtitle votes" \
+                        "overview overview overview sinopse sinopse"
 .description__title
   grid-area title
   margin .5rem 0
   text-transform uppercase
   font-size 1.25rem
-  color #FFF
-  font-weight 600
+  color white
+  font-weight $bold
+  @media only screen and (min-width 321px)
+    font-size 2rem
+
+.description__subtitle
+  grid-area subtitle
+  text-transform uppercase
+  font-weight bold
+  color gray
+  text-align center
+  margin .5rem 0
+  > span:last-child span:last-child
+    display none
+  @media only screen and (min-width 321px)
+    text-align left
+    color white
 
 .description__rates
   grid-area rate
@@ -96,13 +128,13 @@ export default {
   grid-area votes
   margin .5rem 0
   font-size .75rem
-  color #FFF
+  color white
 
 .description__overview
   grid-area overview
   margin .5rem 0
   font-size .75rem
-  color #FFF
+  color white
   white-space nowrap
   overflow hidden
   text-overflow ellipsis
@@ -114,4 +146,5 @@ export default {
   text-decoration underline
   color #ff5656
   text-align right
+  cursor pointer
 </style>

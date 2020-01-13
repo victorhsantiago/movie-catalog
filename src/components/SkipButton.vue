@@ -19,13 +19,16 @@ export default {
   border: none
   background-color: #fff
   font-size .8rem
-  font-weight 600
-  width 6rem
-  height 3rem
+  font-weight $bold
+  color dark-gray
+  width 100px
+  height 50px
   display flex
   align-items center
   justify-content center
   border-radius: 2rem
   cursor pointer
   text-transform uppercase
+  @media only screen and (min-width 321px)
+    height 60px
 </style>

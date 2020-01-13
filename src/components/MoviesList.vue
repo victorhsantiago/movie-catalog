@@ -44,6 +44,9 @@ export default {
   grid-gap .5rem
   justify-items center
   padding .5rem
+  @media only screen and (min-width 321px)
+    grid-template-columns repeat(3, 1fr)
+    grid-gap 50px
 
 .movie
   width 100%
@@ -51,7 +54,9 @@ export default {
   border-radius .25rem
   overflow hidden
   position relative
-
+  @media only screen and (min-width 321px)
+    width 294px
+    height 350px
 .movie__image
   width 100%
   height 100%
@@ -69,5 +74,5 @@ export default {
   font-size .8rem
   text-transform uppercase
   color #FFF
-  font-weight 600
+  font-weight $bold
 </style>

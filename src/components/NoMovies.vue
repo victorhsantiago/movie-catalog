@@ -11,7 +11,7 @@
 
 <style lang="stylus" scoped>
 .no_movie
-  background-color #f4f4f4
+  background-color light-gray
   padding 1rem
 
 .no_movie__camera
@@ -23,6 +23,6 @@
   text-align center
   text-transform uppercase
   font-size 1.5rem
-  font-weight 600
-  color #444444
+  font-weight $bold
+  color dark-gray
 </style>

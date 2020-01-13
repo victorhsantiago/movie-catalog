@@ -22,12 +22,15 @@ export default {
 
 <style lang="stylus" scoped>
 .list
-  background-color #f4f4f4
+  background-color light-gray
+  @media only screen and (min-width 321px)
+    padding 0 20%
+
 
 .title
   font-size 1.5rem
-  font-weight 600
+  font-weight $bold
   text-transform uppercase
   padding .5rem
-  color #444444
+  color dark-gray
 </style>

@@ -1,13 +1,13 @@
 <template>
   <nav class="menu" :class="{ 'menu--open': isMenuOpen }">
     <router-link class="menu__link" to="/">
-      <span @click="toggleMenu">Filmes não curados</span>
+      Filmes não curados
     </router-link>
     <router-link class="menu__link" to="/liked-movies">
-      <span @click="toggleMenu">Filmes curtidos</span>
+      Filmes curtidos
     </router-link>
     <router-link class="menu__link" to="/disliked-movies">
-      <span @click="toggleMenu">Filmes não curtidos</span>
+      Filmes não curtidos
     </router-link>
   </nav>
 </template>
@@ -38,18 +38,25 @@ export default {
   flex-direction column
   justify-content center
   overflow-x hidden
-  background-color #444444
+  background-color dark-gray
   transition .3s
   white-space nowrap
   z-index 1
+  @media only screen and (min-width 321px)
+    position static
+    width 100%
+    height 120px
+    flex-direction row
+    align-items center
+    background-color transparent
+    font-size .8rem
 
 .menu__link
   margin  1rem
   text-transform uppercase
-  font-weight 600
+  font-weight $bold
   text-decoration none
   color #fff
-  display block
   transition 0.3s
 
 .menu--open

@@ -76,9 +76,9 @@ export default {
   z-index 1
   border: none
   background-color: #fff
-  color #444444
+  color dark-gray
   font-size 1.5rem
-  font-weight 600
+  font-weight $bold
   width 3rem
   height 3rem
   border-radius: 2rem
@@ -116,15 +116,15 @@ export default {
 .description__title
   text-transform uppercase
   font-size 1.25rem
-  color #444444
-  font-weight 600
+  color dark-gray
+  font-weight $bold
   margin .5rem 0
   text-align center
 
 .description__subtitle
   text-transform uppercase
   font-weight bold
-  color #979797
+  color gray
   text-align center
   margin .5rem 0
   > span:last-child span:last-child
@@ -136,11 +136,11 @@ export default {
 .description__votes
   font-size .75rem
   font-weight bold
-  color #979797
+  color gray
   margin .5rem 0
 
 .description__overview
-  color #444444
+  color dark-gray
   font-weight bold
   letter-spacing .5px
   line-height 1.5rem

@@ -1,6 +1,6 @@
 <template>
   <button class="button" @click="likeMovie">
-    <img src="@/assets/curti.png" alt="Curti!" />
+    <img class="button__icon" src="@/assets/curti.png" alt="Curti!" />
     <span class="button__text">Curti!</span>
   </button>
 </template>
@@ -19,16 +19,28 @@ export default {
 .button
   border none
   background-color #fff
-  width 4rem
-  height 4rem
+  width 70px
+  height 70px
   display flex
   align-items center
   justify-content center
-  font-weight 600
+  font-weight $bold
   text-transform uppercase
-  border-radius 2rem
+  border-radius 35px
   cursor pointer
+  @media only screen and (min-width 321px)
+    width 200px
+    padding 0 1rem
+    color viva-red
+    margin 0 100px
+
+.button__icon
+  @media only screen and (min-width 321px)
+    transform translateY(-.5rem)
 
 .button__text
   display none
+  @media only screen and (min-width 321px)
+    display inline
+    margin-left 1rem
 </style>

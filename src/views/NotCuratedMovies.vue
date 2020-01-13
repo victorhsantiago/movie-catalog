@@ -56,4 +56,7 @@ export default {
   justify-content space-between
   align-items center
   padding 1rem
+  @media only screen and (min-width 321px)
+    justify-content center
+    margin-top 40px
 </style>

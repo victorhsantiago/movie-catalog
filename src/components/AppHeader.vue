@@ -43,6 +43,8 @@ export default {
   top 2rem
   left 2rem
   cursor pointer
+  @media only screen and (min-width 321px)
+    display none
 
 .header__logo
   align-self center

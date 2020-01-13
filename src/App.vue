@@ -31,5 +31,5 @@ export default {
 </script>
 
 <style lang="stylus">
-@import 'style/style.styl'
+@import 'styles/style.styl'
 </style>
