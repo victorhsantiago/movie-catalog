@@ -10,7 +10,7 @@
         <p class="description__title">
           {{ currentMovie.original_title }}
         </p>
-        <p class="description__subtitle">
+        <p class="description__subtitle hidden_mobile">
           {{ currentMovie.release_date | onlyYear }} -
           <span v-for="(id, i) in currentMovie.genre_ids" :key="i">
             {{ genres(id) }} <span>/</span>
@@ -26,22 +26,20 @@
         <p class="description__overview">
           {{ currentMovie.overview }}
         </p>
-        <p class="description__sinopse" @click="toggleModal">
+        <p class="description__sinopse" @click="prepareModal(currentMovie)">
           Ver sinopse
         </p>
       </section>
     </section>
-    <MovieModal :movie="currentMovie" />
   </section>
 </template>
 
 <script>
-import { mapState, mapGetters, mapMutations } from 'vuex'
+import { mapState, mapGetters, mapActions } from 'vuex'
 
 export default {
   components: {
     MovieRates: () => import('@/components/MovieRates.vue'),
-    MovieModal: () => import('@/components/MovieModal.vue'),
   },
   props: {
     currentMovie: Object,
@@ -57,7 +55,7 @@ export default {
     },
   },
   methods: {
-    ...mapMutations(['toggleModal']),
+    ...mapActions(['prepareModal']),
     genres(id) {
       const { name } = this.getMovieGenre(id)
       return name

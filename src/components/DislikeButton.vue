@@ -1,7 +1,7 @@
 <template>
   <button class="button" @click="dislikeMovie">
     <img class="button__icon" src="@/assets/n-curti.png" alt="Não curti!" />
-    <span class="button__text">Não curti!</span>
+    <span class="button__text hidden_mobile">Não curti!</span>
   </button>
 </template>
 
@@ -42,8 +42,5 @@ export default {
 
 
 .button__text
-  display none
-  @media only screen and (min-width 321px)
-    display inline
-    margin-left 1rem
+  margin-left 1rem
 </style>

@@ -1,7 +1,7 @@
 <template>
   <button class="button" @click="likeMovie">
     <img class="button__icon" src="@/assets/curti.png" alt="Curti!" />
-    <span class="button__text">Curti!</span>
+    <span class="button__text hidden_mobile">Curti!</span>
   </button>
 </template>
 
@@ -40,8 +40,5 @@ export default {
     transform translateY(-.5rem)
 
 .button__text
-  display none
-  @media only screen and (min-width 321px)
-    display inline
     margin-left 1rem
 </style>

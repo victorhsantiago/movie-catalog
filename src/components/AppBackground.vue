@@ -26,7 +26,7 @@ export default {
   height 100vh
   position fixed
   z-index -1
-  background linear-gradient(60deg, #ff1c1c  0%, #ff5656  100%)
+  background linear-gradient(-60deg, #ff1c1c  0%, #ff5656  100%)
   overflow hidden
 
 .background__image
