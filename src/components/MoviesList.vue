@@ -39,24 +39,21 @@ export default {
 
 <style lang="stylus" scoped>
 .movies__list
-  display grid
-  grid-template-columns repeat(2, 1fr)
-  grid-gap .5rem
-  justify-items center
-  padding .5rem
-  @media only screen and (min-width 321px)
-    grid-template-columns repeat(3, 1fr)
-    grid-gap 50px
+  display flex
+  flex-wrap wrap
 
 .movie
-  width 100%
-  height 175px
+  width 140px
+  height 174px
   border-radius .25rem
   overflow hidden
   position relative
+  margin 0 .5rem 1rem .5rem
   @media only screen and (min-width 321px)
     width 294px
     height 350px
+    margin 0 1.5rem 3rem 1.5rem
+
 .movie__image
   width 100%
   height 100%

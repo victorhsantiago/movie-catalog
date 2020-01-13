@@ -1,8 +1,10 @@
 <template>
   <div class="list">
-    <p class="title">Filmes Não Curtidos</p>
-    <NoMovies v-if="dislikedMovies.length === 0" />
-    <MoviesList :movies-list="dislikedMovies" />
+    <div class="list__wrapper">
+      <p class="title">Filmes Não Curtidos</p>
+      <NoMovies v-if="dislikedMovies.length === 0" />
+      <MoviesList :movies-list="dislikedMovies" />
+    </div>
   </div>
 </template>
 
@@ -23,14 +25,18 @@ export default {
 <style lang="stylus" scoped>
 .list
   background-color light-gray
-  @media only screen and (min-width 321px)
-    padding 0 20%
 
+.list__wrapper
+  @media only screen and (min-width 321px)
+    margin auto
+    width 75%
 
 .title
   font-size 1.5rem
   font-weight $bold
   text-transform uppercase
-  padding .5rem
+  padding 1rem .5rem
   color dark-gray
+  @media only screen and (min-width 321px)
+    padding 1.5rem
 </style>

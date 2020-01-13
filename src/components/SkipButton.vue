@@ -29,6 +29,7 @@ export default {
   border-radius: 2rem
   cursor pointer
   text-transform uppercase
+  outline none
   @media only screen and (min-width 321px)
     height 60px
 </style>

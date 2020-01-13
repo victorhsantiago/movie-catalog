@@ -28,6 +28,7 @@ export default {
   text-transform uppercase
   border-radius 35px
   cursor pointer
+  outline none
   color dark-gray
   @media only screen and (min-width 321px)
     width 200px
