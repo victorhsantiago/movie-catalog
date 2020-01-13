@@ -7,4 +7,5 @@ export default {
   currentMovie: { id: 'current' },
   isMenuOpen: false,
   isModalOpen: false,
+  selectedMovie: {},
 }

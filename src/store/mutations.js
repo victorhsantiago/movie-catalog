@@ -27,4 +27,7 @@ export default {
   toggleModal(state) {
     state.isModalOpen = !state.isModalOpen
   },
+  setSelectedMovie(state, movie) {
+    state.selectedMovie = movie
+  },
 }

@@ -19,4 +19,8 @@ export default {
       .get('https://api.themoviedb.org/3/genre/movie/list')
       .then(({ data: { genres } }) => commit('setGenresList', genres))
   },
+  prepareModal({ commit }, movie) {
+    commit('toggleModal')
+    commit('setSelectedMovie', movie)
+  },
 }

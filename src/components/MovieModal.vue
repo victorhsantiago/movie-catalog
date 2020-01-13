@@ -2,31 +2,31 @@
   <transition name="fade">
     <div v-if="isModalOpen" class="modal">
       <div class="movie">
-        <button class="modal__button" @click="toggleModal">x</button>
+        <button class="modal__button" @click="toggleModal">&times;</button>
         <div class="stripe" />
         <img
           class="movie__image"
-          :src="'https://image.tmdb.org/t/p/w500/' + movie.poster_path"
+          :src="'https://image.tmdb.org/t/p/w500/' + selectedMovie.poster_path"
           alt=""
         />
         <p class="description__title">
-          {{ movie.original_title }}
+          {{ selectedMovie.original_title }}
         </p>
         <p class="description__subtitle">
-          {{ movie.release_date | onlyYear }} -
-          <span v-for="(id, i) in movie.genre_ids" :key="i">
+          {{ selectedMovie.release_date | onlyYear }} -
+          <span v-for="(id, i) in selectedMovie.genre_ids" :key="i">
             {{ genres(id) }} <span>/</span>
           </span>
         </p>
         <MovieRates
           class="description__rates"
-          :movie-rate="movie.vote_average"
+          :movie-rate="selectedMovie.vote_average"
         />
         <span class="description__votes">
-          ({{ movie.vote_count }} avaliações)
+          ({{ selectedMovie.vote_count }} avaliações)
         </span>
         <p class="description__overview">
-          {{ movie.overview }}
+          {{ selectedMovie.overview }}
         </p>
       </div>
     </div>
@@ -40,11 +40,8 @@ export default {
   components: {
     MovieRates: () => import('@/components/MovieRates.vue'),
   },
-  props: {
-    movie: Object,
-  },
   computed: {
-    ...mapState(['isModalOpen']),
+    ...mapState(['isModalOpen', 'selectedMovie']),
     ...mapGetters(['getMovieGenre']),
   },
   methods: {
@@ -61,7 +58,7 @@ export default {
 .modal
   width 100%
   height 100%
-  position absolute
+  position fixed
   top 0
   left 0
   display flex

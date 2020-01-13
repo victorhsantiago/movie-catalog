@@ -6,6 +6,7 @@
       <slot />
     </section>
     <AppBackground />
+    <MovieModal />
   </section>
 </template>
 
@@ -18,6 +19,7 @@ export default {
     AppHeader: () => import('@/components/AppHeader.vue'),
     AppMenu: () => import('@/components/AppMenu.vue'),
     AppBackground: () => import('@/components/AppBackground.vue'),
+    MovieModal: () => import('@/components/MovieModal.vue'),
   },
   computed: {
     ...mapState(['isMenuOpen']),

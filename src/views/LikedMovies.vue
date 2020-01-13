@@ -3,7 +3,7 @@
     <div class="list__wrapper">
       <p class="title">Filmes Curtidos</p>
       <NoMovies v-if="likedMovies.length === 0" />
-      <MoviesList :movies-list="likedMovies" />
+      <MoviesList v-else :movies-list="likedMovies" />
     </div>
   </div>
 </template>
