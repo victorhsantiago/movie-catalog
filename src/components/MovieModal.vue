@@ -1,8 +1,8 @@
 <template>
   <transition name="fade">
     <div v-if="isModalOpen" class="modal">
-      <button class="modal__button" @click="toggleModal">x</button>
       <div class="movie">
+        <button class="modal__button" @click="toggleModal">x</button>
         <div class="stripe" />
         <img
           class="movie__image"
@@ -68,14 +68,15 @@ export default {
   justify-content center
   align-items center
   background-color rgba(#333, .8)
+  z-index 1
 
 .modal__button
   position absolute
   top 5px
   right 5px
   z-index 1
-  border: none
-  background-color: #fff
+  border none
+  background-color white
   color dark-gray
   font-size 1.5rem
   font-weight $bold
@@ -86,16 +87,20 @@ export default {
   text-transform uppercase
 
 .movie
-  width 95%
-  height 95%
+  width 90%
+  height 90%
   border-radius .5rem
   overflow hidden
   display flex
   flex-direction column
   align-items center
-  background-color #fff
+  background-color white
   padding 1.5rem
   position relative
+  @media only screen and (min-width 321px)
+    width 60%
+    height 60%
+    padding 1.5rem 3rem
 
 .stripe
   width 100%
@@ -112,6 +117,9 @@ export default {
   object-fit cover
   z-index 1
   margin .5rem 0
+  @media only screen and (min-width 321px)
+    width 145px
+    height 174px
 
 .description__title
   text-transform uppercase
