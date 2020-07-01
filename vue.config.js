@@ -7,6 +7,7 @@ module.exports = {
       addStyleResource(config.module.rule('stylus').oneOf(type))
     )
   },
+  publicPath: process.env.NODE_ENV === "production" ? '/movie-catalog/' : '/'
 }
 
 function addStyleResource(rule) {
