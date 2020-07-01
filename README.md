@@ -1,4 +1,7 @@
-# vivadecora-frontend-test
+# Movie catalog
+
+> Simple app listing movies from The Movie Database.
+> In it you can like or dislike a movie, and have them on their own list
 
 ## Project setup
 ```
